@@ -1,6 +1,6 @@
 package com.carstorewithspring.data.mapper;
 
-import com.carstorewithspring.data.api.BrandResponse;
+import com.carstorewithspring.data.response.BrandResponse;
 import com.carstorewithspring.data.model.Brand;
 
 import java.util.ArrayList;

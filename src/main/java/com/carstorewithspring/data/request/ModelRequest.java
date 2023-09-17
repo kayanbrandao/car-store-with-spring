@@ -1,4 +1,4 @@
-package com.carstorewithspring.data.api;
+package com.carstorewithspring.data.request;
 
 import com.carstorewithspring.data.model.Brand;
 import jakarta.validation.constraints.NotBlank;

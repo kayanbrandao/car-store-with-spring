@@ -1,8 +1,7 @@
 package com.carstorewithspring.service;
 
-import com.carstorewithspring.data.api.ModelRequest;
+import com.carstorewithspring.data.request.ModelRequest;
 import com.carstorewithspring.data.model.Model;
-import com.carstorewithspring.repository.ModelRepository;
 import com.carstorewithspring.repository.ModelRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

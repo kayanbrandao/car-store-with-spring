@@ -1,7 +1,6 @@
 package com.carstorewithspring.service;
 
-import com.carstorewithspring.data.api.BrandRequest;
-import com.carstorewithspring.data.api.BrandResponse;
+import com.carstorewithspring.data.request.BrandRequest;
 import com.carstorewithspring.data.model.Brand;
 import com.carstorewithspring.repository.BrandRepository;
 import org.springframework.beans.BeanUtils;

@@ -1,6 +1,6 @@
 package com.carstorewithspring.data.mapper;
 
-import com.carstorewithspring.data.api.ModelResponse;
+import com.carstorewithspring.data.response.ModelResponse;
 import com.carstorewithspring.data.model.Model;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.carstorewithspring.data.api;
+package com.carstorewithspring.data.response;
 
 import com.carstorewithspring.data.model.Brand;
 

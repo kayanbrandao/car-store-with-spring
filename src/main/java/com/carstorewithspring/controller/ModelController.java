@@ -1,7 +1,7 @@
 package com.carstorewithspring.controller;
 
-import com.carstorewithspring.data.api.ModelRequest;
-import com.carstorewithspring.data.api.ModelResponse;
+import com.carstorewithspring.data.request.ModelRequest;
+import com.carstorewithspring.data.response.ModelResponse;
 import com.carstorewithspring.data.mapper.ModelMapper;
 import com.carstorewithspring.service.ModelService;
 import jakarta.validation.Valid;

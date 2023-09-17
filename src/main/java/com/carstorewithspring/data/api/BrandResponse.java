@@ -6,6 +6,6 @@ import java.util.UUID;
 
 public record BrandResponse(
         Long id,
-        @NotBlank String name
+        String name
 ) {
 }

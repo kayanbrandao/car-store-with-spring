@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 
 import java.time.Year;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 @Table(name = "tb_car")
@@ -28,6 +27,23 @@ public class Car {
     private Model model;
 
     public Car() {
+    }
+
+    public Car(String color, String version, GearboxType gearbox, Year year, Model model) {
+        this.color = color;
+        this.version = version;
+        this.gearbox = gearbox;
+        this.year = year;
+        this.model = model;
+    }
+
+    public Car(Long id, String color, String version, GearboxType gearbox, Year year, Model model) {
+        this.id = id;
+        this.color = color;
+        this.version = version;
+        this.gearbox = gearbox;
+        this.year = year;
+        this.model = model;
     }
 
     public Long getId() {

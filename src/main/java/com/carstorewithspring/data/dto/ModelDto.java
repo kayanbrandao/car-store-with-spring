@@ -1,12 +1,12 @@
-package com.carstorewithspring.data.request;
+package com.carstorewithspring.data.dto;
 
 import com.carstorewithspring.data.model.Brand;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
-public record ModelRequest(
-    @NotBlank String name,
+public record ModelDto(
+    Long id,
+    @NotEmpty  String name,
     @NotNull Brand brand
 ) {
 }

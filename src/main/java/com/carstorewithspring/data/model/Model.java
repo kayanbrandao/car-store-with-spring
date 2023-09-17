@@ -2,9 +2,7 @@ package com.carstorewithspring.data.model;
 
 import jakarta.persistence.*;
 
-import java.lang.annotation.Documented;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 @Table(name = "tb_model")
@@ -20,6 +18,17 @@ public class Model {
     private Brand brand;
 
     public Model() {
+    }
+
+    public Model(String name, Brand brand) {
+        this.name = name;
+        this.brand = brand;
+    }
+
+    public Model(Long id, String name, Brand brand) {
+        this.id = id;
+        this.name = name;
+        this.brand = brand;
     }
 
     public Long getId() {

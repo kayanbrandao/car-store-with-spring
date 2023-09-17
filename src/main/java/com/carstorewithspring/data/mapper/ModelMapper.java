@@ -1,31 +1,31 @@
 package com.carstorewithspring.data.mapper;
 
-import com.carstorewithspring.data.response.ModelResponse;
+import com.carstorewithspring.data.dto.ModelDto;
 import com.carstorewithspring.data.model.Model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModelMapper {
-    public static ModelResponse toResponse(Model model){
-        return new ModelResponse(
+    public static ModelDto toResponse(Model model){
+        return new ModelDto(
                 model.getId(),
                 model.getName(),
                 model.getBrand()
         );
     }
 
-    public static List<ModelResponse> toResponse(List<Model> models){
-        List<ModelResponse> ModelResponses = new ArrayList<>();
+    public static List<ModelDto> toResponse(List<Model> models){
+        List<ModelDto> modelDto = new ArrayList<>();
 
         for (Model model : models) {
-            ModelResponses.add(new ModelResponse(
+            modelDto.add(new ModelDto(
                     model.getId(),
                     model.getName(),
                     model.getBrand()
             ));
         }
 
-        return ModelResponses;
+        return modelDto;
     }
 }

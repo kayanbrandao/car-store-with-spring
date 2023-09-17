@@ -2,9 +2,7 @@ package com.carstorewithspring.data.model;
 
 import jakarta.persistence.*;
 
-import java.io.Serializable;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 @Table(name = "tb_brand")
@@ -13,10 +11,19 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "brand_id")
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     public Brand() {
+    }
+
+    public Brand(String name) {
+        this.name = name;
+    }
+
+    public Brand(Long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public Long getId() {

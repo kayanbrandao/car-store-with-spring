@@ -1,29 +1,29 @@
 package com.carstorewithspring.data.mapper;
 
-import com.carstorewithspring.data.response.BrandResponse;
+import com.carstorewithspring.data.dto.BrandDto;
 import com.carstorewithspring.data.model.Brand;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BrandMapper {
-    public static BrandResponse toResponse(Brand brand){
-        return new BrandResponse(
+    public static BrandDto toResponse(Brand brand){
+        return new BrandDto(
                 brand.getId(),
                 brand.getName()
         );
     }
 
-    public static List<BrandResponse> toResponse(List<Brand> brands){
-        List<BrandResponse> brandResponses = new ArrayList<>();
+    public static List<BrandDto> toResponse(List<Brand> brands){
+        List<BrandDto> BrandDto = new ArrayList<>();
 
         for (Brand brand : brands) {
-            brandResponses.add(new BrandResponse(
+            BrandDto.add(new BrandDto(
                     brand.getId(),
                     brand.getName()
             ));
         }
 
-        return brandResponses;
+        return BrandDto;
     }
 }

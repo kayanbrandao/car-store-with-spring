@@ -1,14 +1,15 @@
-package com.carstorewithspring.data.model;
+package com.carstorewithspring.data.entity;
 
 import com.carstorewithspring.data.enums.GearboxType;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.Year;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_car")
-public class Car {
+public class Car implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "car_id")
@@ -30,15 +31,6 @@ public class Car {
     }
 
     public Car(String color, String version, GearboxType gearbox, Year year, Model model) {
-        this.color = color;
-        this.version = version;
-        this.gearbox = gearbox;
-        this.year = year;
-        this.model = model;
-    }
-
-    public Car(Long id, String color, String version, GearboxType gearbox, Year year, Model model) {
-        this.id = id;
         this.color = color;
         this.version = version;
         this.gearbox = gearbox;
@@ -101,22 +93,11 @@ public class Car {
 
         Car car = (Car) o;
 
-        if (!Objects.equals(id, car.id)) return false;
-        if (!Objects.equals(color, car.color)) return false;
-        if (!Objects.equals(version, car.version)) return false;
-        if (gearbox != car.gearbox) return false;
-        if (!Objects.equals(year, car.year)) return false;
-        return Objects.equals(model, car.model);
+        return Objects.equals(id, car.id);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (color != null ? color.hashCode() : 0);
-        result = 31 * result + (version != null ? version.hashCode() : 0);
-        result = 31 * result + (gearbox != null ? gearbox.hashCode() : 0);
-        result = 31 * result + (year != null ? year.hashCode() : 0);
-        result = 31 * result + (model != null ? model.hashCode() : 0);
-        return result;
+        return id != null ? id.hashCode() : 0;
     }
 }

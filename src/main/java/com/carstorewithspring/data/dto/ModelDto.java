@@ -1,6 +1,6 @@
 package com.carstorewithspring.data.dto;
 
-import com.carstorewithspring.data.model.Brand;
+import com.carstorewithspring.data.entity.Brand;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 

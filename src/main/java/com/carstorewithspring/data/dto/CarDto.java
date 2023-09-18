@@ -1,7 +1,7 @@
 package com.carstorewithspring.data.dto;
 
 import com.carstorewithspring.data.enums.GearboxType;
-import com.carstorewithspring.data.model.Model;
+import com.carstorewithspring.data.entity.Model;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 

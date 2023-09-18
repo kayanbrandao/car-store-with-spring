@@ -1,11 +1,12 @@
 package com.carstorewithspring.service;
 
 import com.carstorewithspring.data.dto.CarDto;
-import com.carstorewithspring.data.model.Car;
+import com.carstorewithspring.data.entity.Car;
 import com.carstorewithspring.exception.ResourceNotFoundException;
 import com.carstorewithspring.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class CarService {
         this.repository = repository;
     }
 
+    @Transactional
     public Car create(CarDto request){
         return repository.save(new Car(
                 request.color(),
@@ -28,18 +30,20 @@ public class CarService {
         ));
     }
 
+    @Transactional(readOnly = true)
     public List<Car> findAll(){
         return repository.findAll();
     }
 
+    @Transactional(readOnly = true)
     public Car findById(Long id){
         return repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Não foi encontrado esse id!"));
     }
 
+    @Transactional
     public Car update(CarDto request){
-        Car car = repository.findById(request.id())
-                .orElseThrow(() -> new ResourceNotFoundException("Não foi encontrado esse id!"));
+        Car car = findById(request.id());
 
         car.setColor(request.color());
         car.setVersion(request.version());
@@ -49,9 +53,9 @@ public class CarService {
         return repository.save(car);
     }
 
+    @Transactional
     public void delete(Long id){
-        Car car = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Não foi encontrado esse id!"));
+        Car car = findById(id);
         repository.delete(car);
     }
 }

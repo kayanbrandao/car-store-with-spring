@@ -1,12 +1,13 @@
-package com.carstorewithspring.data.model;
+package com.carstorewithspring.data.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_model")
-public class Model {
+public class Model implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "model_id")
@@ -21,12 +22,6 @@ public class Model {
     }
 
     public Model(String name, Brand brand) {
-        this.name = name;
-        this.brand = brand;
-    }
-
-    public Model(Long id, String name, Brand brand) {
-        this.id = id;
         this.name = name;
         this.brand = brand;
     }
@@ -62,16 +57,11 @@ public class Model {
 
         Model model = (Model) o;
 
-        if (!Objects.equals(id, model.id)) return false;
-        if (!Objects.equals(name, model.name)) return false;
-        return Objects.equals(brand, model.brand);
+        return Objects.equals(id, model.id);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (brand != null ? brand.hashCode() : 0);
-        return result;
+        return id != null ? id.hashCode() : 0;
     }
 }

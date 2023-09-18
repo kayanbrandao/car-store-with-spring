@@ -1,7 +1,7 @@
 package com.carstorewithspring.data.mapper;
 
 import com.carstorewithspring.data.dto.ModelDto;
-import com.carstorewithspring.data.model.Model;
+import com.carstorewithspring.data.entity.Model;
 
 import java.util.ArrayList;
 import java.util.List;

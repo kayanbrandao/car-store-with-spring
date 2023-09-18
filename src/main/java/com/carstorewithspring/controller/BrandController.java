@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/brand")
+@RequestMapping("/brands")
 @Tag(name = "Brands", description = "Endpoints for Managing Brands!")
 public class BrandController {
     private final BrandService service;

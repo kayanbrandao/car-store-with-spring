@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/model")
+@RequestMapping("/models")
 @Tag(name = "Models", description = "Endpoints for Managing Models!")
 public class ModelController {
     private final ModelService service;

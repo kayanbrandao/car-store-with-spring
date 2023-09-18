@@ -1,12 +1,13 @@
 package com.carstorewithspring.service;
 
 import com.carstorewithspring.data.dto.ModelDto;
-import com.carstorewithspring.data.model.Model;
+import com.carstorewithspring.data.entity.Model;
 import com.carstorewithspring.exception.ResourceNotFoundException;
 import com.carstorewithspring.repository.ModelRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class ModelService {
         this.repository = repository;
     }
 
+    @Transactional
     public Model create(ModelDto request){
         Model model = new Model();
         BeanUtils.copyProperties(request, model);
@@ -28,18 +30,20 @@ public class ModelService {
         ));
     }
 
+    @Transactional(readOnly = true)
     public List<Model> findAll(){
         return repository.findAll();
     }
 
+    @Transactional(readOnly = true)
     public Model findById(Long id){
         return repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Não foi encontrado esse id!"));
     }
 
+    @Transactional
     public Model update(ModelDto request){
-        Model model = repository.findById(request.id())
-                .orElseThrow(() -> new ResourceNotFoundException("Não foi encontrado esse id!"));
+        Model model = findById(request.id());
 
         model.setName(request.name());
         model.setBrand(request.brand());
@@ -47,9 +51,9 @@ public class ModelService {
         return repository.save(model);
     }
 
+    @Transactional
     public void delete(Long id){
-        Model model = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Não foi encontrado esse id!"));
+        Model model = findById(id);
         repository.delete(model);
     }
 }
